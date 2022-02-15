@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react';
 import './App.css';
 
+//define the reducer function that we are going to use in the reducer
 function countReducer(state, action) {
   switch (action.type) {
     case ('ADD'):
@@ -9,11 +10,13 @@ function countReducer(state, action) {
       return { count: state.count - action.amount }
     case ('RESET'):
       return { count: 0 }
+    default:
+      break;
   }
 }
 
 function App() {
-  const [state, dispatch] = useReducer(countReducer, { count: 0 })
+  const [state, dispatch] = useReducer(countReducer, { count: 0 })//define the reducer that gives back a state and a function
   return (
     <div className="App">
       <h1>Count: {state.count}</h1>
